@@ -24,7 +24,7 @@ shinyServer(function(input, output, session) {
             output[[output_id[i]]] <- renderUI({
                 actionLink(paste(output_id[i], 'Action', sep = ''),
                            paste('Action Link No.', i),
-                           class = 'multi-action-item', which = i)
+                           class = 'multi-action-item')
             })
         })
     }
