@@ -3,8 +3,7 @@ source('multiAction.R')
 shinyUI(ui = fluidPage(
     title = 'Search Result Input Binding',
     tags$head(
-        tags$script(type = 'text/javascript', src = 'multiActionInputBinding.js'),
-        tags$style('i {z-index: -100;}')
+        tags$script(type = 'text/javascript', src = 'multiActionInputBinding.js')
     ),
     fluidRow(
         h4('Example For', tags$code('listGroupMultiAction()')),
