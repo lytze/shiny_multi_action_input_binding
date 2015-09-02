@@ -3,7 +3,8 @@ source('multiAction.R')
 shinyUI(ui = fluidPage(
     title = 'Search Result Input Binding',
     tags$head(
-        tags$script(type = 'text/javascript', src = 'multiActionInputBinding.js')
+        tags$script(type = 'text/javascript', src = 'multiActionInputBinding.js'),
+        tags$style('i {z-index: -100;}')
     ),
     fluidRow(
         h4('Example For', tags$code('listGroupMultiAction()')),
@@ -36,14 +37,14 @@ shinyUI(ui = fluidPage(
                     id = 'm1Actions',
                     class = 'pagination',
                     tags$li(tags$a(
-                        icon('angle-double-left'), href = '#',
-                        class = 'multi-action-global-item',
+                        href = '#',
+                        class = 'multi-action-global-item fa fa-angle-double-left',
                         which = 'leftmost',
                         watch = 'monitor1'
                     )),
                     tags$li(tags$a(
-                        icon('angle-left'), href = '#',
-                        class = 'multi-action-global-item',
+                        href = '#',
+                        class = 'multi-action-global-item fa fa-angle-left',
                         which = 'left',
                         watch = 'monitor1'
                     )),
@@ -56,14 +57,14 @@ shinyUI(ui = fluidPage(
                         )
                     }),
                     tags$li(tags$a(
-                        icon('angle-right'), href = '#',
-                        class = 'multi-action-global-item',
+                        href = '#',
+                        class = 'multi-action-global-item fa fa-angle-right',
                         which = 'right',
                         watch = 'monitor1'
                     )),
                     tags$li(tags$a(
-                        icon('angle-double-right'), href = '#',
-                        class = 'multi-action-global-item',
+                        href = '#',
+                        class = 'multi-action-global-item fa fa-angle-double-right',
                         which = 'rightmost',
                         watch = 'monitor1'
                     ))
