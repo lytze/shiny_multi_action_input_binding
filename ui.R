@@ -29,7 +29,7 @@ shinyUI(ui = fluidPage(
             width = 6,
             wellPanel(
                 setMultiActionMonitor('monitor1'),
-                setMultiActionMonitor('monitor2'),
+                setMultiActionMonitor('monitor2', default = 'home'),
                 tags$label('Actions for monitor 1', `for` = 'm1Actions'),
                 br(),
                 tags$ul(

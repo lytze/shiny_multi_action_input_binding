@@ -25,6 +25,6 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
     )
 }
 
-setMultiActionMonitor <- function(id) {
-    div(id = id, style = 'display: none;', class = 'multi-action-global')
+setMultiActionMonitor <- function(id, default = NULL) {
+    div(id = id, style = 'display: none;', class = 'multi-action-global', which = default)
 }
