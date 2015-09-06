@@ -1,3 +1,4 @@
+## Input Elements
 listGroupMultiAction <- function(id, label = '', class_outer = '',
                                  items, values = NULL, ...) {
     if (is.null(values)) {
@@ -24,7 +25,14 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
         )
     )
 }
-
 setMultiActionMonitor <- function(id, default = NULL) {
     div(id = id, style = 'display: none;', class = 'multi-action-global', which = default)
+}
+
+## Util Functions
+resetMultiAction <- function(session, inputId) {
+    session$sendInputMessage(inputId, 'RESETEDVALUE')
+}
+setMultiAction <- function(session, inputId, value) {
+    session$sendInputMessage(inputId, value)
 }

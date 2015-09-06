@@ -20,7 +20,10 @@ shinyUI(ui = fluidPage(
         ),
         column(
             width = 6,
-            uiOutput('lgMultiActionMsg')
+            uiOutput('lgMultiActionMsg'),
+            actionButton('lgMultiActionReset', 'Reset Value'),
+            textInput('lgMultiActionSetValue', ''),
+            actionButton('lgMultiActionSet', 'Set Value')
         )
     ),
     fluidRow(
@@ -123,7 +126,12 @@ shinyUI(ui = fluidPage(
         ),
         column(
             width = 6,
-            uiOutput('monitorMultiActionMsg')
+            uiOutput('monitorMultiActionMsg'),
+            actionButton('mnt1Reset', 'Reset Value of Monotor 1'),
+            actionButton('mnt2Reset', 'Reset Value of Monotor 2'),
+            textInput('mntSetValue', ''),
+            actionButton('mnt1Set', 'Set Value of Monotor 1'),
+            actionButton('mnt2Set', 'Set Value of Monotor 2')
         )
     )
 ))

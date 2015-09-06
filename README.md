@@ -38,6 +38,10 @@ This function will output an hidden HTML div element serve as an moniter for a g
 
 The only argument is `id`, which serves 2 functions. First this id is the reactive input object id, so you can `input$theIdYouUsed` to get the value or bind reactiveness. Meanwhile, if you add `class="multi-action-global-item" which="returnedValue" watch="theIdYouUsed"` to any HTML element, the element will be watched by the monitor and return value to the reactive input object upon click.
 
+#### `(re)setMultiAction()`
+
+These functions allow you to reset/set the multi action object you registered. The shiny server's `session` object is required as one argument of these function
+
 ### Example
 
 Clone the repo can run the shiny-app for examples

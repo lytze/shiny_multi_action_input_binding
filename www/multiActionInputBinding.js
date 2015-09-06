@@ -14,7 +14,9 @@ jQuery(function($) {
             return $(scope).find(".multi-action-local");
         },
         getValue: function(el) {
-            return $(el).attr("which");
+            if ($(el).attr("which") === 'RESETEDVALUE') {
+                return null;
+            } else return $(el).attr("which");
         },
         subscribe: function(el, callback) {
             $(el).on("change.multiActionLocalInputBinding", function(e) {
@@ -23,6 +25,10 @@ jQuery(function($) {
         },
         unsubscribe: function(el) {
             $(el).off(".multiActionLocalInputBinding");
+        },
+        receiveMessage: function(el, msg) {
+            $(el).attr("which", msg);
+            $(el).trigger("change");
         }
     });
     Shiny.inputBindings.register(multiActionLocalInputBinding);
@@ -42,7 +48,9 @@ jQuery(function($) {
             return $(scope).find(".multi-action-global");
         },
         getValue: function(el) {
-            return $(el).attr("which");
+            if ($(el).attr("which") === 'RESETEDVALUE') {
+                return null;
+            } else return $(el).attr("which");
         },
         subscribe: function(el, callback) {
             $(el).on("change.multiActionGlobalInputBinding", function(e) {
@@ -51,6 +59,10 @@ jQuery(function($) {
         },
         unsubscribe: function(el) {
             $(el).off(".multiActionGlobalInputBinding");
+        },
+        receiveMessage: function(el, msg) {
+            $(el).attr("which", msg);
+            $(el).trigger("change");
         }
     });
     Shiny.inputBindings.register(multiActionGlobalInputBinding);
