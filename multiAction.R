@@ -7,7 +7,7 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
         stop('items and values should have the same length')
     }
     div(
-        class = paste('multi-action-local', class_outer),
+        class = paste('multi-action', class_outer),
         ...,
         id = id,
         if (label != '') {
@@ -17,8 +17,8 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
             class = 'list-group',
             mapply(FUN = function(item, value) {
                 tags$a(
-                    class = 'multi-action-local-item list-group-item',
-                    which = value,
+                    class = 'multi-action-item list-group-item',
+                    which = value, watch = id,
                     item
                 )
             }, item = items, value = values, SIMPLIFY = F)
@@ -26,12 +26,12 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
     )
 }
 setMultiActionMonitor <- function(id, default = NULL) {
-    div(id = id, style = 'display: none;', class = 'multi-action-global', which = default)
+    div(id = id, style = 'display: none;', class = 'multi-action', which = default)
 }
 
 ## Util Functions
 resetMultiAction <- function(session, inputId) {
-    session$sendInputMessage(inputId, 'RESETEDVALUE')
+    session$sendInputMessage(inputId, NULL)
 }
 setMultiAction <- function(session, inputId, value) {
     session$sendInputMessage(inputId, value)

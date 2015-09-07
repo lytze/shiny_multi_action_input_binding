@@ -1,7 +1,7 @@
 require(shiny)
 source('multiAction.R')
 shinyUI(ui = fluidPage(
-    title = 'Search Result Input Binding',
+    title = 'Shiny Multi Action Input Binding',
     tags$head(
         tags$script(type = 'text/javascript', src = 'multiActionInputBinding.js')
     ),
@@ -40,33 +40,33 @@ shinyUI(ui = fluidPage(
                     class = 'pagination',
                     tags$li(tags$a(
                         href = '#',
-                        class = 'multi-action-global-item fa fa-angle-double-left',
+                        class = 'multi-action-item fa fa-angle-double-left',
                         which = 'leftmost',
                         watch = 'monitor1'
                     )),
                     tags$li(tags$a(
                         href = '#',
-                        class = 'multi-action-global-item fa fa-angle-left',
+                        class = 'multi-action-item fa fa-angle-left',
                         which = 'left',
                         watch = 'monitor1'
                     )),
                     lapply(1:5, function(pg) {
                         tags$li(
                             tags$a(pg, href = '#',
-                                   class = 'multi-action-global-item',
+                                   class = 'multi-action-item',
                                    which = pg,
                                    watch = 'monitor1')
                         )
                     }),
                     tags$li(tags$a(
                         href = '#',
-                        class = 'multi-action-global-item fa fa-angle-right',
+                        class = 'multi-action-item fa fa-angle-right',
                         which = 'right',
                         watch = 'monitor1'
                     )),
                     tags$li(tags$a(
                         href = '#',
-                        class = 'multi-action-global-item fa fa-angle-double-right',
+                        class = 'multi-action-item fa fa-angle-double-right',
                         which = 'rightmost',
                         watch = 'monitor1'
                     ))
@@ -78,12 +78,12 @@ shinyUI(ui = fluidPage(
                     id = 'm2Actions',
                     class = 'btn-group',
                     tags$button(
-                        type = 'button', class = 'btn btn-default multi-action-global-item',
+                        type = 'button', class = 'btn btn-default multi-action-item',
                         watch = 'monitor2', which = 'home',
                         icon('home'), 'Home'
                     ),
                     tags$button(
-                        type = 'button', class = 'btn btn-default multi-action-global-item',
+                        type = 'button', class = 'btn btn-default multi-action-item',
                         watch = 'monitor2', which = 'settings',
                         icon('cog'), 'Settings'
                     ),
@@ -99,17 +99,17 @@ shinyUI(ui = fluidPage(
                             tags$li(
                                 tags$a(icon('edit'), 'Profile', href = '#',
                                        watch = 'monitor2', which = 'profile',
-                                       class = 'multi-action-global-item')
+                                       class = 'multi-action-item')
                             ),
                             tags$li(
                                 tags$a(icon('file'), 'Files', href = '#',
                                        watch = 'monitor2', which = 'files',
-                                       class = 'multi-action-global-item')
+                                       class = 'multi-action-item')
                             ),
                             tags$li(
                                 tags$a(icon('power-off'), 'Logout', href = '#',
                                        watch = 'monitor2', which = 'logout',
-                                       class = 'multi-action-global-item')
+                                       class = 'multi-action-item')
                             )
                         )
                     )
@@ -118,7 +118,7 @@ shinyUI(ui = fluidPage(
                 helpText('This buttom is Still Wathched by Monitor 2'),
                 tags$button(
                     id = 'aloneButton',
-                    type = 'button', class = 'btn btn-default multi-action-global-item',
+                    type = 'button', class = 'btn btn-default multi-action-item',
                     watch = 'monitor2', which = 'lonely-button', 
                     'Button Alone'
                 )
