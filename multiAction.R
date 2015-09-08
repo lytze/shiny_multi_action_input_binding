@@ -26,7 +26,12 @@ listGroupMultiAction <- function(id, label = '', class_outer = '',
     )
 }
 setMultiActionMonitor <- function(id, default = NULL) {
-    div(id = id, style = 'display: none;', class = 'multi-action', which = default)
+    if (is.null(default)) {
+        div(id = id, style = 'display: none;', class = 'multi-action')
+    } else {
+        div(id = id, style = 'display: none;', class = 'multi-action',
+            `data-cnt` = 0, `data-val` = default, `data-default` = 'y')
+    }
 }
 
 ## Util Functions

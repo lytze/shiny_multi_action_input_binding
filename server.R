@@ -1,7 +1,7 @@
 require(shiny)
 source('multiAction.R')
 shinyServer(function(input, output, session) {
-    observeEvent(input$lgMultiActionExample, {
+    observeEvent(input$lgMultiActionExample$cnt, {
         output$lgMultiActionMsg <- renderUI({
             helpText(paste(
                 'You Selected: [', input$lgMultiActionExample$val, ']'
@@ -9,7 +9,7 @@ shinyServer(function(input, output, session) {
         })
         cat(paste('You Selected: [', input$lgMultiActionExample$val, ']\n'))
     })
-    observeEvent(input$monitor1, {
+    observeEvent(input$monitor1$cnt, {
         output$monitorMultiActionMsg <- renderUI({
             helpText(paste(
                 'You Selected: [', input$monitor1$val, '] of actions watched by monitor 1'
@@ -17,7 +17,7 @@ shinyServer(function(input, output, session) {
         })
         cat(paste('You Selected: [', input$monitor1$val, '] of actions watched by monitor 1\n'))
     })
-    observeEvent(input$monitor2, {
+    observeEvent(input$monitor2$cnt, {
         output$monitorMultiActionMsg <- renderUI({
             helpText(paste(
                 'You Selected: [', input$monitor2$val, '] of actions watched by monitor 2'

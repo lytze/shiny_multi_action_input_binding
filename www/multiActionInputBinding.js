@@ -11,10 +11,10 @@ jQuery(function($) {
         // Raise the change info
         outer.trigger("change");
     };
-    $(".multi-action-item").find("*").on("click", function() {
+    $(document).on("click", ".multi-action-item *", function() {
         $(".multi-action-item").has($(this)).trigger("click");
     });
-    $(".multi-action-item").on("click", function(evt) {
+    $(document).on("click", ".multi-action-item", function(evt) {
         multiActionActivate(evt);
     });
     $.extend(multiActionInputBinding, {
@@ -24,7 +24,7 @@ jQuery(function($) {
         getValue: function(el) {
             return {
                 "cnt":$(el).data("cnt"),
-                "val":$(el).data("val")
+                "val":$(el).data("val"),
             };
         },
         subscribe: function(el, callback) {
@@ -36,11 +36,23 @@ jQuery(function($) {
             $(el).off(".multiActionInputBinding");
         },
         receiveMessage: function(el, msg) {
-            $(el).data("val", msg);
+            if (msg === null) {
+                if ($(el).data("default") === 'y') {
+                    $(el).data("val", $(el).attr("data-val"));
+                } else {
+                    $(el).data("val", null);
+                }
+            } else {
+                $(el).data("val", msg);
+            }
             $(el).data("cnt", 0);
             $(el).trigger("change");
         }
     });
     Shiny.inputBindings.register(multiActionInputBinding);
+    
+    $(document).on("click", "a.multi-action-item", function(a) {
+        a.preventDefault();
+    });
 
 });
